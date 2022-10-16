@@ -1,0 +1,30 @@
+class Stack():
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)				
+
+    def pop(self):
+        return self.items.pop()
+    
+    def is_empty(self):
+        return self.items == []
+    
+    def peek(self):
+        if not self.is_empty():
+            return self.items[-1]
+        
+    def get_stack(self):
+        return self.items
+        
+def convert_int_to_bin(dec_num):
+    a = Stack()
+    c = ""
+    while dec_num >= 1: 
+        a.push(dec_num % 2)
+        dec_num = dec_num // 2
+    b =  a.get_stack()[::-1]
+    for i in b:
+        c = c + str(i)
+    return (c)
